@@ -5,7 +5,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{fontSize:30, fontWeight:"bold"}}>CARTiT</Text>
+      <Text style={{fontSize:18}}>Welcome to Cartit</Text>
+      <Text style={{fontSize:18}}>The resolutionary Ecommerce app for all!</Text>
       <StatusBar style="auto" />
     </View>
   );
