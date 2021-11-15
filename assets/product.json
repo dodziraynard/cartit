@@ -1,0 +1,28 @@
+{
+    "products": {
+        "name": "Name",
+        "price": 2321,
+        "colors": [
+            {
+                "red": "url"
+            },
+            {
+                "green": "url"
+            }
+        ],
+        "sizes": [
+            41,
+            42,
+            44
+        ],
+        "images": [
+            "url",
+            "url"
+        ],
+        "rating": 2.4,
+        "reviews": [
+            "I love it",
+            "simply good"
+        ]
+    }
+}

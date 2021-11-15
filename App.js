@@ -1,23 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import HomeScreen from "./src/screens/home/Home";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./src/screens/auth/Login";
+import RegisterScreen from "./src/screens/auth/Register";
+import IntroductionScreen from "./src/screens/auth/Introduction";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={{fontSize:30, fontWeight:"bold"}}>CARTiT</Text>
-      <Text style={{fontSize:18}}>Welcome to Cartit</Text>
-      <Text style={{fontSize:18}}>The resolutionary Ecommerce app for all!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="HomeScreen"
+        screenOptions={{ cardOverlayEnabled: true }}
+      >
+        <Stack.Screen
+          name="IntroductionScreen"
+          headerShown={false}
+          options={{
+            title: "New Here?",
+            headerShown: false,
+            headerStyle: { backgroundColor: "transparent" },
+          }}
+          component={IntroductionScreen}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{
+            title: "Login",
+          }}
+        />
+        <Stack.Screen
+          name="RegisterScreen"
+          component={RegisterScreen}
+          options={{
+            title: "Register",
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
