@@ -3,7 +3,7 @@ import React from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function ProductCategoryComponent({ navigation }) {
+export default function ProductCategoryComponent({ navigation, title }) {
   return (
     <View>
       
@@ -27,7 +27,7 @@ export default function ProductCategoryComponent({ navigation }) {
           }}
         />
       </TouchableOpacity>
-      <Text style={{ textAlign: "center" }}>Electronics</Text>
+      <Text style={{ textAlign: "center" }}>{title}</Text>
     </View>
   );
 }

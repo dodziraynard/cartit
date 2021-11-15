@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/auth/Login";
 import RegisterScreen from "./src/screens/auth/Register";
 import IntroductionScreen from "./src/screens/auth/Introduction";
+import ProductDetailsScreen from "./src/screens/details/ProductDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,15 +14,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="HomeScreen"
-        screenOptions={{ cardOverlayEnabled: true }}
+        screenOptions={{
+          cardOverlayEnabled: true,
+          gestureEnabled: true,
+          gestureResponseDistance: { horizontal: 20 },
+        }}
       >
         <Stack.Screen
           name="IntroductionScreen"
-          headerShown={false}
           options={{
-            title: "New Here?",
             headerShown: false,
-            headerStyle: { backgroundColor: "transparent" },
           }}
           component={IntroductionScreen}
         />
@@ -37,6 +39,14 @@ export default function App() {
           component={LoginScreen}
           options={{
             title: "Login",
+          }}
+        />
+        <Stack.Screen
+          name="ProductDetailsScreen"
+          component={ProductDetailsScreen}
+          options={{
+            title: "Product Details",
+            headerShown: false,
           }}
         />
         <Stack.Screen

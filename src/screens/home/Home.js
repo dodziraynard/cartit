@@ -88,22 +88,29 @@ export default function HomeScreen({ navigation }) {
 
           <View style={{ height: 100 }}>
             <ScrollView horizontal={true}>
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
-              <ProductCategoryComponent />
+              <ProductCategoryComponent
+                title={"New Arrivals"}
+                navigation={navigation}
+              />
+              <ProductCategoryComponent
+                title={"Electronics"}
+                navigation={navigation}
+              />
+              <ProductCategoryComponent
+                title={"Fashion"}
+                navigation={navigation}
+              />
+              <ProductCategoryComponent
+                title={"Glasses"}
+                navigation={navigation}
+              />
             </ScrollView>
           </View>
 
-          <ProductsComponent title={"New Arrival"} />
-          <ProductsComponent title={"Electronics"} />
-          <ProductsComponent title={"Fashion"} />
-          <ProductsComponent title={"Glasses"} />
+          <ProductsComponent title={"New Arrivals"} navigation={navigation} />
+          <ProductsComponent title={"Electronics"} navigation={navigation} />
+          <ProductsComponent title={"Fashion"} navigation={navigation} />
+          <ProductsComponent title={"Glasses"} navigation={navigation} />
         </ScrollView>
       </View>
     </View>

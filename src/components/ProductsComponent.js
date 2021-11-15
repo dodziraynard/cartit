@@ -1,30 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   StyleSheet,
   Text,
   View,
-  SectionList,
   FlatList,
   Image,
   TouchableOpacity,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-
-const ListItem = ({ item }) => {
-  return (
-    <View style={styles.item}>
-      <Image
-        source={{
-          uri: item.uri,
-        }}
-        style={styles.itemPhoto}
-        resizeMode="cover"
-      />
-      <Text style={styles.itemText}>{item.text}</Text>
-    </View>
-  );
-};
 
 const DATA = [
   {
@@ -41,7 +24,7 @@ const DATA = [
   },
 ];
 
-const Item = ({ title }) => (
+const Item = ({ title, navigation }) => (
   <View
     style={{
       backgroundColor: "white",
@@ -50,7 +33,9 @@ const Item = ({ title }) => (
       paddingHorizontal: 10,
     }}
   >
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ProductDetailsScreen")}
+    >
       <Image
         source={require("../../assets/generics/intropage.png")}
         style={{
@@ -116,8 +101,10 @@ const Item = ({ title }) => (
   </View>
 );
 
-export default ProductsComponent = ({ title }) => {
-  const renderItem = ({ item }) => <Item title={item.title} />;
+export default ProductsComponent = ({ title, navigation }) => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} navigation={navigation} />
+  );
 
   return (
     <View style={styles.container}>
@@ -126,6 +113,7 @@ export default ProductsComponent = ({ title }) => {
       <FlatList
         horizontal
         data={DATA}
+        onPress={() => navigation.navigate("LoginScreen")}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
