@@ -64,9 +64,28 @@ const Item = ({ title }) => (
       />
     </TouchableOpacity>
 
-    <Text style={{ fontSize: 20, color: "#555", fontWeight: "400" }}>
+    <Text
+      style={{
+        fontSize: 20,
+        marginBottom: 10,
+        color: "#666",
+        fontWeight: "bold",
+      }}
+    >
       {title}
     </Text>
+
+    <TouchableOpacity
+      style={{
+        backgroundColor: "#eeee",
+        borderRadius: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        width: 80,
+      }}
+    >
+      <Text style={{}}>7 Colors</Text>
+    </TouchableOpacity>
 
     <View
       style={{
