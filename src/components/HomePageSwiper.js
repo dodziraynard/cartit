@@ -44,7 +44,7 @@ export default class HomePageSwiper extends Component {
             source={require("../../assets/generics/intropage.png")}
             style={{
               width: wp("100%"),
-              height: 150,
+              height: 180,
               resizeMode: "center",
             }}
           />
@@ -54,7 +54,7 @@ export default class HomePageSwiper extends Component {
             source={require("../../assets/generics/intropage.png")}
             style={{
               width: wp("100%"),
-              height: 150,
+              height: 180,
               resizeMode: "center",
             }}
           />
@@ -64,7 +64,7 @@ export default class HomePageSwiper extends Component {
             source={require("../../assets/generics/intropage.png")}
             style={{
               width: wp("100%"),
-              height: 150,
+              height: 180,
               resizeMode: "center",
             }}
           />
