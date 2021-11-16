@@ -1,7 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
 import { widthPercentageToDP } from "react-native-responsive-screen";
 
 export default function CartItem({ navigation, title }) {
