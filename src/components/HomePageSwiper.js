@@ -39,7 +39,7 @@ export default class HomePageSwiper extends Component {
   render() {
     return (
       <Swiper style={styles.wrapper} height={100} showsButtons={false}>
-        <View style={{ height: 100 }}>
+        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
           <Image
             source={require("../../assets/generics/intropage.png")}
             style={{
@@ -49,7 +49,7 @@ export default class HomePageSwiper extends Component {
             }}
           />
         </View>
-        <View style={{ height: 100 }}>
+        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
           <Image
             source={require("../../assets/generics/intropage.png")}
             style={{
@@ -59,7 +59,7 @@ export default class HomePageSwiper extends Component {
             }}
           />
         </View>
-        <View style={{ height: 100 }}>
+        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
           <Image
             source={require("../../assets/generics/intropage.png")}
             style={{

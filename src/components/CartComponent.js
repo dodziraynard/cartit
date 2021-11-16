@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 export default function CartComponent({ navigation }) {
   return (
     <TouchableOpacity
+    onPress={() => navigation.navigate("CartScreen")}
       style={{
         padding: 10,
         marginHorizontal: 10,

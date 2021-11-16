@@ -1,8 +1,60 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, View, Image } from "react-native";
+import {
+  AppRegistry,
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 import Swiper from "react-native-swiper";
+
+export default function ProductImagesSwiper({ navigation }) {
+  return (
+    <Swiper style={styles.wrapper} height={100} showsButtons={false}>
+      <TouchableOpacity
+        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
+        onPress={() => console.log("presseds")}
+      >
+        <Image
+          source={require("../../assets/generics/intropage.png")}
+          style={{
+            width: wp("100%"),
+            height: 250,
+            resizeMode: "center",
+          }}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
+        onPress={() => console.log("presseds")}
+      >
+        <Image
+          source={require("../../assets/generics/intropage.png")}
+          style={{
+            width: wp("100%"),
+            height: 250,
+            resizeMode: "center",
+          }}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
+        onPress={() => console.log("presseds")}
+      >
+        <Image
+          source={require("../../assets/generics/intropage.png")}
+          style={{
+            width: wp("100%"),
+            height: 250,
+            resizeMode: "center",
+          }}
+        />
+      </TouchableOpacity>
+    </Swiper>
+  );
+}
 
 const styles = StyleSheet.create({
   wrapper: {},
@@ -34,44 +86,3 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-export default class ProductImagesSwiper extends Component {
-  render() {
-    return (
-      <Swiper style={styles.wrapper} height={100} showsButtons={false}>
-        <View style={{ height: 100 }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 250,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-        <View style={{ height: 100 }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 250,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-        <View style={{ height: 100 }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 250,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-      </Swiper>
-    );
-  }
-}
-
-AppRegistry.registerComponent("myproject", () => ProductImagesSwiper);

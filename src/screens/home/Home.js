@@ -7,7 +7,6 @@ import ProductsComponent from "../../components/ProductsComponent";
 
 import {
   StyleSheet,
-  Text,
   View,
   TextInput,
   ScrollView,
@@ -27,7 +26,7 @@ export default function HomeScreen({ navigation }) {
 
       <View
         style={{
-          backgroundColor: "#33e3",
+          backgroundColor: "#723af5",
           height: 200,
           width: wp("100%"),
           borderBottomRightRadius: 20,
@@ -48,7 +47,7 @@ export default function HomeScreen({ navigation }) {
           placeholderTextColor="#333"
           placeholder="I want to cart ..."
         />
-        <CartComponent />
+        <CartComponent navigation={navigation} />
         <TouchableOpacity
           onPress={() => navigation.navigate("IntroductionScreen")}
           style={{

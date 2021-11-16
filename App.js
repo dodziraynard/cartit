@@ -6,6 +6,7 @@ import LoginScreen from "./src/screens/auth/Login";
 import RegisterScreen from "./src/screens/auth/Register";
 import IntroductionScreen from "./src/screens/auth/Introduction";
 import ProductDetailsScreen from "./src/screens/details/ProductDetails";
+import CartScreen from "./src/screens/cart/CartScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,13 @@ export default function App() {
           component={RegisterScreen}
           options={{
             title: "Register",
+          }}
+        />
+         <Stack.Screen
+          name="CartScreen"
+          component={CartScreen}
+          options={{
+            title: "My Cart",
           }}
         />
       </Stack.Navigator>
