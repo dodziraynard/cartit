@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, View, Image } from "react-native";
+import { AppRegistry, StyleSheet, View, Image } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 import Swiper from "react-native-swiper";
