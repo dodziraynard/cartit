@@ -26,7 +26,7 @@ export default function OrderReceived({ navigation }) {
       </Text>
       <View style={{ alignItems: "center" }}>
         <Button
-          backgroundColor="#33e"
+          backgroundColor="#723af5"
           text="Explore More"
           onPress={() => navigation.navigate("HomeScreen")}
         />
