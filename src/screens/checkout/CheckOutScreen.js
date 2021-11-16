@@ -2,7 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   CreditCardInput,
-  LiteCreditCardInput,
 } from "react-native-credit-card-input";
 import Input from "../../components/Input";
 import {
@@ -50,7 +49,7 @@ export default function CheckOutScreen({ navigation }) {
             <Input label="Email" placeholder="yourname@domain.com" />
 
             <Text style={{ fontSize: 20, color: "grey", marginVertical: 20 }}>
-              Please enter your credit card details
+              Please enter your credit card details.
             </Text>
             <CreditCardInput onChange={(form) => console.log(form)} />
           </View>
@@ -99,6 +98,7 @@ export default function CheckOutScreen({ navigation }) {
             GHC 9849
           </Text>
           <TouchableOpacity
+            onPress={() => navigation.navigate("OrderReceived")}
             style={{ backgroundColor: "orange", padding: 10, borderRadius: 10 }}
           >
             <Text>Check Out</Text>

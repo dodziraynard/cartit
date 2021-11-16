@@ -8,6 +8,7 @@ import IntroductionScreen from "./src/screens/auth/Introduction";
 import ProductDetailsScreen from "./src/screens/details/ProductDetails";
 import CartScreen from "./src/screens/cart/CartScreen";
 import CheckOutScreen from "./src/screens/checkout/CheckOutScreen";
+import OrderReceived from "./src/screens/checkout/OrderReceived";
 
 const Stack = createNativeStackNavigator();
 
@@ -70,6 +71,13 @@ export default function App() {
           component={CheckOutScreen}
           options={{
             title: "Check Out",
+          }}
+        />
+        <Stack.Screen
+          name="OrderReceived"
+          component={OrderReceived}
+          options={{
+            title: "Order Received",
           }}
         />
       </Stack.Navigator>
