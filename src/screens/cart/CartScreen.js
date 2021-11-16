@@ -84,6 +84,7 @@ export default function ProductDetailsScreen({ navigation }) {
             GHC 9849
           </Text>
           <TouchableOpacity
+            onPress={()=>navigation.navigate("CheckOutScreen")}
             style={{ backgroundColor: "orange", padding: 10, borderRadius: 10 }}
           >
             <Text>Check Out</Text>

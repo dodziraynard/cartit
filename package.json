@@ -16,6 +16,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-credit-card-input": "^0.4.1",
     "react-native-responsive-screen": "^1.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screen": "^1.0.1",

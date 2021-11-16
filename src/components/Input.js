@@ -13,7 +13,7 @@ const Input = ({ label, placeholder, value, widthHalf, secureTextEntry }) => {
     >
       <Text
         style={{
-          fontSize: 14,
+          fontSize: 20,
           fontWeight: "500",
           color: "gray",
         }}

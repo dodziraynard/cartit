@@ -1,7 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import CartItem from "../../components/CartItem";
-
+import {
+  CreditCardInput,
+  LiteCreditCardInput,
+} from "react-native-credit-card-input";
+import Input from "../../components/Input";
 import {
   StyleSheet,
   Text,
@@ -33,6 +36,24 @@ export default function CheckOutScreen({ navigation }) {
           >
             Update your details to checkout.
           </Text>
+
+          <View
+            style={{
+              alignSelf: "center",
+              paddingTop: 20,
+              paddingBottom: 50,
+            }}
+          >
+            <Input label="Full Name" placeholder="Raynard Dodzi Helegah" />
+            <Input label="Address" placeholder="Dr Hilla Limann, UG" />
+            <Input label="Phone" placeholder="024 9485 948" />
+            <Input label="Email" placeholder="yourname@domain.com" />
+
+            <Text style={{ fontSize: 20, color: "grey", marginVertical: 20 }}>
+              Please enter your credit card details
+            </Text>
+            <CreditCardInput onChange={(form) => console.log(form)} />
+          </View>
         </ScrollView>
 
         <View
