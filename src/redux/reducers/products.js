@@ -1,6 +1,10 @@
 import { GET_PRODUCTS } from "../actions/types";
+import { GET_MATCHED_PRODUCTS } from "../actions/types";
+import { SET_QUERY } from "../actions/types";
 
 const initialState = {
+  query: "",
+  queryMatchedProducts: [],
   products: [
     {
       id: 1,
@@ -76,6 +80,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         products: action.payload,
+      };
+    case SET_QUERY:
+      return {
+        ...state,
+        query: action.payload,
+        queryMatchedProducts: [
+          ...state.products.filter((product) =>
+            product.name.toLowerCase().includes(action.payload.toLowerCase())
+          ),
+        ],
       };
     default:
       return state;

@@ -10,10 +10,17 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 
-export default ProductsComponent = ({ title, navigation, catId }) => {
-  const products = useSelector((state) =>
-    state.products.products.filter((product) => product.cat_id == catId)
-  );
+export default ProductsComponent = ({
+  title,
+  navigation,
+  catId,
+  numColumns,
+  products,
+  horizontal = true,
+}) => {
+  // const products = useSelector((state) =>
+  //   state.products.products.filter((product) => product.cat_id == catId)
+  // );
 
   const renderItem = ({ item: product }) => (
     <Item title={product.name} product={product} navigation={navigation} />
@@ -24,7 +31,9 @@ export default ProductsComponent = ({ title, navigation, catId }) => {
       <Text style={styles.sectionHeader}>{title}</Text>
 
       <FlatList
-        horizontal
+        horizontal={horizontal}
+        numColumns={horizontal ? 0 : numColumns}
+        centerContent={"center"}
         data={products}
         onPress={() => navigation.navigate("LoginScreen")}
         renderItem={renderItem}

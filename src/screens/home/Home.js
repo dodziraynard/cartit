@@ -1,24 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import CartComponent from "../../components/CartComponent";
+import Navbar from "../../components/Navbar";
 import HomePageSwiper from "../../components/HomePageSwiper";
 import ProductCategoryComponent from "../../components/ProductCategoryComponent";
 import ProductsComponent from "../../components/ProductsComponent";
 import { useSelector } from "react-redux";
 
-import {
-  StyleSheet,
-  View,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import Constants from "expo-constants";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { AntDesign } from "@expo/vector-icons";
 
 export default function HomeScreen({ navigation }) {
   const categories = useSelector((state) => state.categories.categories);
@@ -27,44 +20,7 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <StatusBar style="light" />
 
-      <View
-        style={{
-          backgroundColor: "#723af5",
-          height: 200,
-          width: wp("100%"),
-          borderBottomRightRadius: 20,
-          borderBottomLeftRadius: 20,
-          position: "absolute",
-        }}
-      />
-
-      <View style={styles.navbar}>
-        <TextInput
-          style={{
-            flex: 1,
-            margin: 10,
-            padding: 15,
-            backgroundColor: "#eeef",
-            borderRadius: 20,
-            fontSize: 20,
-          }}
-          placeholderTextColor="#333"
-          placeholder="I want to cart ..."
-        />
-        <CartComponent navigation={navigation} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate("IntroductionScreen")}
-          style={{
-            alignSelf: "center",
-            marginRight: 10,
-            padding: 10,
-            borderRadius: 20,
-            backgroundColor: "#eeee",
-          }}
-        >
-          <AntDesign name="user" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
+      <Navbar navigation={navigation} />
 
       <View style={{ height: hp("85%") }}>
         <ScrollView>
@@ -89,11 +45,11 @@ export default function HomeScreen({ navigation }) {
             <HomePageSwiper />
           </View>
 
-          <View style={{ height: 100 }}>
+          <View style={{ height: 100, alignSelf: "center" }}>
             <ScrollView horizontal={true}>
-              {categories.map((cat) => (
+              {categories.map((category) => (
                 <ProductCategoryComponent
-                  title={cat.name}
+                  category={category}
                   navigation={navigation}
                 />
               ))}

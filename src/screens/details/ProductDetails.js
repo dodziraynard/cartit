@@ -33,7 +33,7 @@ export default function ProductDetail({ navigation, route }) {
       type: ADD_ITEM_TO_CART,
       payload: { product, quantity: 1, color: chosenColor, size: chosenSize },
     });
-    navigation.navigate("HomeScreen");
+    navigation.goBack();
   };
 
   return (

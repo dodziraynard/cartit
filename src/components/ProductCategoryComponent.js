@@ -1,17 +1,18 @@
 import React from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 
-export default function ProductCategoryComponent({ navigation, title }) {
+export default function ProductCategoryComponent({ navigation, category }) {
   return (
     <View>
       <TouchableOpacity
+        onPress={() => navigation.navigate("ProductsScreen", { category })}
         style={{
-          padding: 10,
           marginHorizontal: 10,
           alignSelf: "center",
           alignItems: "center",
-          backgroundColor: "#a3a1",
+          backgroundColor: "#0002",
           borderRadius: 20,
+          padding: 10,
         }}
       >
         <Image
@@ -24,7 +25,7 @@ export default function ProductCategoryComponent({ navigation, title }) {
           }}
         />
       </TouchableOpacity>
-      <Text style={{ textAlign: "center" }}>{title}</Text>
+      <Text style={{ textAlign: "center" }}>{category.name}</Text>
     </View>
   );
 }
