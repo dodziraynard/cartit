@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  CreditCardInput,
-} from "react-native-credit-card-input";
+import { CreditCardInput } from "react-native-credit-card-input";
+import { RESET_CART } from "../../redux/actions/types";
 import Input from "../../components/Input";
 import {
   StyleSheet,
@@ -12,8 +11,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { useDispatch } from "react-redux";
 
 export default function CheckOutScreen({ navigation }) {
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -98,7 +100,13 @@ export default function CheckOutScreen({ navigation }) {
             GHC 9849
           </Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate("OrderReceived")}
+            onPress={() => {
+              dispatch({
+                type: RESET_CART,
+                payload: null,
+              });
+              navigation.reset({ routes: [{ name: "OrderReceived" }] });
+            }}
             style={{ backgroundColor: "orange", padding: 10, borderRadius: 10 }}
           >
             <Text>Check Out</Text>

@@ -1,4 +1,8 @@
-import { ADD_ITEM_TO_CART, UPDATE_ITEM_QUANTITY } from "../actions/types";
+import {
+  ADD_ITEM_TO_CART,
+  UPDATE_ITEM_QUANTITY,
+  RESET_CART,
+} from "../actions/types";
 
 const initialState = {
   totalPrice: 0.0,
@@ -35,6 +39,9 @@ export default function (state = initialState, action) {
         ...newState,
         totalPrice: calculateTotal(newState.cartItems),
       };
+
+    case RESET_CART:
+      return initialState;
 
     case UPDATE_ITEM_QUANTITY:
       const id = action.payload.id;
