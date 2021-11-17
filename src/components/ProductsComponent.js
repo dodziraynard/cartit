@@ -18,9 +18,10 @@ export default ProductsComponent = ({
   products,
   horizontal = true,
 }) => {
-  // const products = useSelector((state) =>
-  //   state.products.products.filter((product) => product.cat_id == catId)
-  // );
+  if (catId > 0)
+    products = useSelector((state) =>
+      state.products.products.filter((product) => product.cat_id == catId)
+    );
 
   const renderItem = ({ item: product }) => (
     <Item title={product.name} product={product} navigation={navigation} />
