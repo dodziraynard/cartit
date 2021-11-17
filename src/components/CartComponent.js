@@ -1,12 +1,14 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
 
 export default function CartComponent({ navigation }) {
+  const cartItems = useSelector((state) => state.cartItems.cartItems);
+
   return (
     <TouchableOpacity
-    onPress={() => navigation.navigate("CartScreen")}
+      onPress={() => navigation.navigate("CartScreen")}
       style={{
         padding: 10,
         marginHorizontal: 10,
@@ -28,7 +30,9 @@ export default function CartComponent({ navigation }) {
           width: 22,
         }}
       >
-        <Text style={{ color: "white", textAlign: "center" }}>5</Text>
+        <Text style={{ color: "white", textAlign: "center" }}>
+          {cartItems.length}
+        </Text>
       </View>
     </TouchableOpacity>
   );

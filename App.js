@@ -9,11 +9,14 @@ import ProductDetailsScreen from "./src/screens/details/ProductDetails";
 import CartScreen from "./src/screens/cart/CartScreen";
 import CheckOutScreen from "./src/screens/checkout/CheckOutScreen";
 import OrderReceived from "./src/screens/checkout/OrderReceived";
+import { Provider } from 'react-redux';
+import store from "./src/redux/store"
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="HomeScreen"
@@ -82,5 +85,6 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }

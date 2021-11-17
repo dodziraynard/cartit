@@ -8,23 +8,33 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
+export default ProductsComponent = ({ title, navigation, catId }) => {
+  const products = useSelector((state) =>
+    state.products.products.filter((product) => product.cat_id == catId)
+  );
 
-const Item = ({ title, navigation }) => (
+  const renderItem = ({ item: product }) => (
+    <Item title={product.name} product={product} navigation={navigation} />
+  );
+
+  return (
+    <View>
+      <Text style={styles.sectionHeader}>{title}</Text>
+
+      <FlatList
+        horizontal
+        data={products}
+        onPress={() => navigation.navigate("LoginScreen")}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
+  );
+};
+
+const Item = ({ title, navigation, product }) => (
   <View
     style={{
       backgroundColor: "white",
@@ -34,7 +44,9 @@ const Item = ({ title, navigation }) => (
     }}
   >
     <TouchableOpacity
-      onPress={() => navigation.navigate("ProductDetailsScreen")}
+      onPress={() =>
+        navigation.navigate("ProductDetailsScreen", { product: product })
+      }
     >
       <Image
         source={require("../../assets/generics/intropage.png")}
@@ -101,31 +113,7 @@ const Item = ({ title, navigation }) => (
   </View>
 );
 
-export default ProductsComponent = ({ title, navigation }) => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} navigation={navigation} />
-  );
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.sectionHeader}>{title}</Text>
-
-      <FlatList
-        horizontal
-        data={DATA}
-        onPress={() => navigation.navigate("LoginScreen")}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // backgroundColor: "#121212",
-  },
   sectionHeader: {
     fontWeight: "800",
     fontSize: 18,

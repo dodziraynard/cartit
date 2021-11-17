@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import ProductImagesSwiper from "../../components/ProductImagesSwiper";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -16,8 +16,24 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import { useDispatch } from "react-redux";
+import { ADD_ITEM_TO_CART } from "../../redux/actions/types";
 
-export default function CartScreen({ navigation }) {
+export default function ProductDetail({ navigation, route, color, size }) {
+  const product = route.params.product;
+  const dispatch = useDispatch();
+  const [chosenColor, setChosenColor] = useState(color);
+  const [chosenSize, setChosenSize] = useState(size);
+
+  const addItemToCart = (product) => {
+    dispatch({
+      type: ADD_ITEM_TO_CART,
+      payload: { product, quatity: 1, color: chosenColor, size: chosenSize },
+    });
+
+    navigation.navigate("HomeScreen");
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -36,8 +52,12 @@ export default function CartScreen({ navigation }) {
       <View
         style={{
           height: hp("85%"),
+          backgroundColor: "white",
           marginTop: Constants.statusBarHeight,
-          marginHorizontal: 10,
+          marginHorizontal: 5,
+          paddingHorizontal: 10,
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
         }}
       >
         <ScrollView>
@@ -70,42 +90,27 @@ export default function CartScreen({ navigation }) {
                 marginVertical: 5,
               }}
             >
-              <Text style={{ fontSize: 30, fontWeight: "500" }}>GHC 150</Text>
-
-              <TouchableOpacity
-                onPress={() => navigation.navigate("HomeScreen")}
-                style={{
-                  borderRadius: 4,
-                  backgroundColor: "#fefefe",
-                  color: "white",
-                  marginRight: 5,
-                  padding: 10,
-                }}
-              >
-                <MaterialIcons
-                  name="add-shopping-cart"
-                  size={30}
-                  color="black"
-                  style={{ alignSelf: "center" }}
-                />
-              </TouchableOpacity>
+              <Text style={{ fontSize: 30, fontWeight: "500" }}>
+                GHC {product.price}
+              </Text>
             </View>
           </View>
           <Text style={{ fontSize: 30, color: "#000a", fontWeight: "500" }}>
-            Nike Air Max 20
+            {product.name}
           </Text>
 
           <Text
             style={{
-              fontSize: 28,
+              fontSize: 20,
               fontWeight: "500",
-              marginTop: 30,
+              marginTop: 20,
               color: "#333",
             }}
           >
             Take your pick!
           </Text>
 
+          {/* Color options */}
           <ScrollView horizontal>
             <View
               style={{
@@ -116,63 +121,42 @@ export default function CartScreen({ navigation }) {
                 marginVertical: 20,
               }}
             >
-              <TouchableOpacity
-                style={{
-                  borderWidth: 3,
-                  borderColor: "#ccc",
-                  borderColor: "red",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  overflow: "hidden",
-                  backgroundColor: "#eeee",
-                  height: 120,
-                  width: 120,
-                  alignItems: "center",
-                }}
-              >
-                <Image
-                  source={require("../../../assets/generics/intropage.png")}
+              {product.colors.map((color) => (
+                <TouchableOpacity
+                  onPress={() => setChosenColor(color)}
                   style={{
-                    width: wp("100%"),
-                    height: 100,
-                    width: 100,
-                    resizeMode: "center",
+                    borderWidth: 3,
+                    borderColor: chosenColor === color ? "#723af5" : "white",
+                    borderRadius: 15,
+                    marginHorizontal: 10,
+                    overflow: "hidden",
+                    backgroundColor: "#eeee",
+                    height: 120,
+                    width: 120,
+                    alignItems: "center",
                   }}
-                />
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  borderWidth: 3,
-                  borderColor: "#ccc",
-                  borderColor: "#0000",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  overflow: "hidden",
-                  backgroundColor: "#eeee",
-                  height: 120,
-                  width: 120,
-                  alignItems: "center",
-                }}
-              >
-                <Image
-                  source={require("../../../assets/generics/intropage.png")}
-                  style={{
-                    width: wp("100%"),
-                    height: 100,
-                    width: 100,
-                    resizeMode: "center",
-                  }}
-                />
-              </TouchableOpacity>
+                >
+                  <Image
+                    source={require("../../../assets/generics/intropage.png")}
+                    style={{
+                      width: wp("100%"),
+                      height: 100,
+                      width: 100,
+                      resizeMode: "center",
+                    }}
+                  />
+                </TouchableOpacity>
+              ))}
             </View>
           </ScrollView>
 
+          {/* Size options */}
+
           <Text
             style={{
-              fontSize: 28,
+              fontSize: 20,
               fontWeight: "500",
-              marginTop: 30,
+              marginTop: 10,
               color: "#333",
             }}
           >
@@ -183,83 +167,38 @@ export default function CartScreen({ navigation }) {
             <View
               style={{
                 alignSelf: "center",
-                height: 100,
+                height: 80,
                 margin: 5,
                 flexDirection: "row",
                 marginVertical: 20,
               }}
             >
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  height: 100,
-                  width: 100,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ fontSize: 28, padding: 30, fontWeight: "500" }}>
-                  41
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  height: 100,
-                  width: 100,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ fontSize: 28, padding: 30, fontWeight: "500" }}>
-                  41
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  height: 100,
-                  width: 100,
-                  alignItems: "center",
-                }}
-              >
-                <Text style={{ fontSize: 28, padding: 30, fontWeight: "500" }}>
-                  41
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  backgroundColor: "black",
-                  borderRadius: 15,
-                  marginHorizontal: 10,
-                  height: 100,
-                  width: 100,
-                  alignItems: "center",
-                }}
-              >
-                <Text
+              {product.sizes.map((size) => (
+                <TouchableOpacity
+                  onPress={() => setChosenSize(size)}
                   style={{
-                    fontSize: 28,
-                    padding: 30,
-                    fontWeight: "500",
-                    color: "white",
+                    borderWidth: 1,
+                    borderColor: "#ccc",
+                    backgroundColor: chosenSize === size ? "#000d" : "white",
+                    borderRadius: 15,
+                    marginHorizontal: 10,
+                    height: 80,
+                    width: 80,
+                    alignItems: "center",
                   }}
                 >
-                  41
-                </Text>
-              </TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 28,
+                      padding: 20,
+                      fontWeight: "500",
+                      color: chosenSize === size ? "white" : "black",
+                    }}
+                  >
+                    {size}
+                  </Text>
+                </TouchableOpacity>
+              ))}
             </View>
           </ScrollView>
 
@@ -267,7 +206,7 @@ export default function CartScreen({ navigation }) {
             style={{
               fontSize: 28,
               fontWeight: "500",
-              marginTop: 30,
+              marginTop: 10,
               color: "#333",
             }}
           >
@@ -282,22 +221,21 @@ export default function CartScreen({ navigation }) {
               color: "#555",
             }}
           >
-            Step into the world of Nike Air Max at schuh. Shop women's, men's &
-            kids Air Max in white, black & more with Next Day UK Delivery.
+            {product.description}
           </Text>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={addItemToCart}
             style={{
               marginHorizontal: "auto",
               alignSelf: "center",
               paddingHorizontal: 20,
-              paddingVertical: 10,
+              paddingVertical: 15,
               backgroundColor: "#723af5",
               borderRadius: 20,
               marginTop: 20,
               flexDirection: "row",
-              shadowColor: "#3ee",
+              shadowColor: "#723af5",
               shadowOffset: {
                 width: 0,
                 height: 5,

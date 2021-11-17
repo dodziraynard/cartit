@@ -4,6 +4,7 @@ import CartComponent from "../../components/CartComponent";
 import HomePageSwiper from "../../components/HomePageSwiper";
 import ProductCategoryComponent from "../../components/ProductCategoryComponent";
 import ProductsComponent from "../../components/ProductsComponent";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   StyleSheet,
@@ -20,6 +21,8 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 
 export default function HomeScreen({ navigation }) {
+  const categories = useSelector((state) => state.categories.categories);
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
@@ -40,9 +43,10 @@ export default function HomeScreen({ navigation }) {
           style={{
             flex: 1,
             margin: 10,
-            padding: 20,
-            backgroundColor: "#eeee",
+            padding: 15,
+            backgroundColor: "#eeef",
             borderRadius: 20,
+            fontSize: 20,
           }}
           placeholderTextColor="#333"
           placeholder="I want to cart ..."
@@ -87,29 +91,22 @@ export default function HomeScreen({ navigation }) {
 
           <View style={{ height: 100 }}>
             <ScrollView horizontal={true}>
-              <ProductCategoryComponent
-                title={"New Arrivals"}
-                navigation={navigation}
-              />
-              <ProductCategoryComponent
-                title={"Electronics"}
-                navigation={navigation}
-              />
-              <ProductCategoryComponent
-                title={"Fashion"}
-                navigation={navigation}
-              />
-              <ProductCategoryComponent
-                title={"Glasses"}
-                navigation={navigation}
-              />
+              {categories.map((cat) => (
+                <ProductCategoryComponent
+                  title={cat.name}
+                  navigation={navigation}
+                />
+              ))}
             </ScrollView>
           </View>
 
-          <ProductsComponent title={"New Arrivals"} navigation={navigation} />
-          <ProductsComponent title={"Electronics"} navigation={navigation} />
-          <ProductsComponent title={"Fashion"} navigation={navigation} />
-          <ProductsComponent title={"Glasses"} navigation={navigation} />
+          {categories.map((cat) => (
+            <ProductsComponent
+              title={cat.name}
+              catId={cat.id}
+              navigation={navigation}
+            />
+          ))}
         </ScrollView>
       </View>
     </View>
