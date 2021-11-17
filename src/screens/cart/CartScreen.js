@@ -10,8 +10,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { useSelector } from "react-redux";
 
-export default function ProductDetailsScreen({ navigation }) {
+export default function CartScreen({ navigation }) {
+  const cartItems = useSelector((state) => state.cartItems.cartItems);
+  const totalPrice = useSelector((state) => state.cartItems.totalPrice);
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -24,21 +28,34 @@ export default function ProductDetailsScreen({ navigation }) {
         }}
       >
         <ScrollView>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "500",
-              color: "#333",
-            }}
-          >
-            Modify your cart here.
-          </Text>
-
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {cartItems.length > 0 ? (
+            cartItems.map((item) => (
+              <TouchableOpacity
+                key={item.id}
+                onPress={() =>
+                  navigation.navigate("ProductDetailsScreen", {
+                    product: item.product,
+                    color: item.color,
+                    size: item.size,
+                  })
+                }
+              >
+                <CartItem item={item} />
+              </TouchableOpacity>
+            ))
+          ) : (
+            <Text
+              style={{
+                fontSize: 20,
+                textAlign: "center",
+                marginTop: 40,
+                fontWeight: "600",
+                color: "grey",
+              }}
+            >
+              Your cart is empty :(
+            </Text>
+          )}
         </ScrollView>
 
         <View
@@ -50,7 +67,7 @@ export default function ProductDetailsScreen({ navigation }) {
             alignItems: "center",
             padding: 10,
             borderRadius: 10,
-            backgroundColor: "#723af5",
+            backgroundColor: totalPrice > 0 ? "#723af5" : "grey",
           }}
         >
           <View>
@@ -81,11 +98,16 @@ export default function ProductDetailsScreen({ navigation }) {
               color: "white",
             }}
           >
-            GHC 9849
+            GHC {totalPrice}
           </Text>
           <TouchableOpacity
-            onPress={()=>navigation.navigate("CheckOutScreen")}
-            style={{ backgroundColor: "orange", padding: 10, borderRadius: 10 }}
+            onPress={() => navigation.navigate("CheckOutScreen")}
+            disabled={totalPrice < 1}
+            style={{
+              backgroundColor: totalPrice > 0 ? "orange" : "#aaa",
+              padding: 10,
+              borderRadius: 10,
+            }}
           >
             <Text>Check Out</Text>
           </TouchableOpacity>

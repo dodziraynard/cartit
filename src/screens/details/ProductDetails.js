@@ -19,8 +19,11 @@ import {
 import { useDispatch } from "react-redux";
 import { ADD_ITEM_TO_CART } from "../../redux/actions/types";
 
-export default function ProductDetail({ navigation, route, color, size }) {
+export default function ProductDetail({ navigation, route }) {
   const product = route.params.product;
+  const color = route.params.color;
+  const size = route.params.size;
+
   const dispatch = useDispatch();
   const [chosenColor, setChosenColor] = useState(color);
   const [chosenSize, setChosenSize] = useState(size);
@@ -28,9 +31,8 @@ export default function ProductDetail({ navigation, route, color, size }) {
   const addItemToCart = (product) => {
     dispatch({
       type: ADD_ITEM_TO_CART,
-      payload: { product, quatity: 1, color: chosenColor, size: chosenSize },
+      payload: { product, quantity: 1, color: chosenColor, size: chosenSize },
     });
-
     navigation.navigate("HomeScreen");
   };
 
@@ -123,6 +125,7 @@ export default function ProductDetail({ navigation, route, color, size }) {
             >
               {product.colors.map((color) => (
                 <TouchableOpacity
+                  key={color}
                   onPress={() => setChosenColor(color)}
                   style={{
                     borderWidth: 3,
@@ -175,6 +178,7 @@ export default function ProductDetail({ navigation, route, color, size }) {
             >
               {product.sizes.map((size) => (
                 <TouchableOpacity
+                  key={size}
                   onPress={() => setChosenSize(size)}
                   style={{
                     borderWidth: 1,
@@ -225,7 +229,7 @@ export default function ProductDetail({ navigation, route, color, size }) {
           </Text>
 
           <TouchableOpacity
-            onPress={addItemToCart}
+            onPress={() => addItemToCart(product)}
             style={{
               marginHorizontal: "auto",
               alignSelf: "center",

@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 
 export default ProductsComponent = ({ title, navigation, catId }) => {
@@ -81,7 +81,7 @@ const Item = ({ title, navigation, product }) => (
         width: 80,
       }}
     >
-      <Text style={{}}>7 Colors</Text>
+      <Text>{product.info}</Text>
     </TouchableOpacity>
 
     <View
@@ -92,23 +92,24 @@ const Item = ({ title, navigation, product }) => (
       }}
     >
       <Text style={{ fontSize: 18, fontWeight: "bold" }}>GHC 349</Text>
-      <TouchableOpacity
+      <View
         style={{
           borderRadius: 4,
-          borderColor: "#eeee",
-          borderWidth: 2,
           padding: 2,
           height: 35,
+          flexDirection: "row",
+          alignItems: "center",
           width: 35,
         }}
       >
-        <MaterialIcons
-          name="add-shopping-cart"
-          size={24}
+        <AntDesign
+          name="eye"
+          size={14}
           color="black"
           style={{ alignSelf: "center" }}
         />
-      </TouchableOpacity>
+        <Text>{product.views}</Text>
+      </View>
     </View>
   </View>
 );
