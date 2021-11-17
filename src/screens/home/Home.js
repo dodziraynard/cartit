@@ -4,7 +4,7 @@ import CartComponent from "../../components/CartComponent";
 import HomePageSwiper from "../../components/HomePageSwiper";
 import ProductCategoryComponent from "../../components/ProductCategoryComponent";
 import ProductsComponent from "../../components/ProductsComponent";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {
   StyleSheet,
