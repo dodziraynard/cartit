@@ -10,48 +10,24 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
 import Swiper from "react-native-swiper";
 
-export default function ProductImagesSwiper({ navigation }) {
+export default function ProductImagesSwiper({ navigation, images }) {
   return (
     <Swiper style={styles.wrapper} height={100} showsButtons={false}>
-      <TouchableOpacity
-        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
-        onPress={() => console.log("presseds")}
-      >
-        <Image
-          source={require("../../assets/generics/intropage.png")}
-          style={{
-            width: wp("100%"),
-            height: 250,
-            resizeMode: "center",
-          }}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
-        onPress={() => console.log("presseds")}
-      >
-        <Image
-          source={require("../../assets/generics/intropage.png")}
-          style={{
-            width: wp("100%"),
-            height: 250,
-            resizeMode: "center",
-          }}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
-        onPress={() => console.log("presseds")}
-      >
-        <Image
-          source={require("../../assets/generics/intropage.png")}
-          style={{
-            width: wp("100%"),
-            height: 250,
-            resizeMode: "center",
-          }}
-        />
-      </TouchableOpacity>
+      {images.map((image) => (
+        <TouchableOpacity
+          style={{ height: 250, overflow: "hidden", borderRadius: 20 }}
+          onPress={() => console.log("presseds")}
+        >
+          <Image
+            source={{ uri: image }}
+            style={{
+              width: wp("100%"),
+              height: 250,
+              resizeMode: "center",
+            }}
+          />
+        </TouchableOpacity>
+      ))}
     </Swiper>
   );
 }

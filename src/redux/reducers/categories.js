@@ -3,11 +3,6 @@ import { GET_CATEGORIES } from "../actions/types";
 const initialState = {
   categories: [
     {
-      id: 5,
-      name: "Hot",
-      image: "https://www.freeiconspng.com/download/6044",
-    },
-    {
       id: 1,
       name: "New Arrivals",
       image: "https://cdn-icons-png.flaticon.com/512/2037/2037558.png",
@@ -16,6 +11,11 @@ const initialState = {
       id: 2,
       name: "Gents",
       image: "https://www.freeiconspng.com/download/2018",
+    },
+    {
+      id: 5,
+      name: "Hot",
+      image: "https://www.freeiconspng.com/download/6044",
     },
     {
       id: 3,

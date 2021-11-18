@@ -89,7 +89,7 @@ export default function ProductDetail({ navigation, route }) {
               elevation: 5,
             }}
           >
-            <ProductImagesSwiper />
+            <ProductImagesSwiper images={product.colors} />
           </View>
 
           <View>
