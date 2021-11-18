@@ -2,7 +2,7 @@
 
 The revolutionary ecommerce app built with react native and state-of-the-art security in place.
 
-![sharks icon](screenshots/icon.jpg)
+<img src="screenshots/icon.jpg" alt="cartit icon" width="100"/>
 
 ## Language and Libraries
 
