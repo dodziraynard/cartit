@@ -9,7 +9,7 @@ The revolutionary ecommerce app built with react native and state-of-the-art sec
 - Javascript
 - React Native
 - Node JS
-- Expor
+- Expo
 
 ## Installation
 
@@ -37,19 +37,27 @@ yarn start
 ## Screenshot
 
 #### Home Screen
+
   <img src="screenshots/1-home.png" alt="Home Screen" width="250"/>
 
 #### Details Screen
+
   <img src="screenshots/2-details.png" alt="Details Screen" width="250"/>
 
 #### Search Screen
+
   <img src="screenshots/5-search.png" alt="Search Screen" width="250"/>
 
 #### Cart Screen
+
   <img src="screenshots/6-cart.png" alt="Cart Screen" width="250"/>
 
 #### Checout Screen
+
   <img src="screenshots/7-checkout.png" alt="Checkout Screen" width="250"/>
 
 #### User Profile
+
   <img src="screenshots/9-userprofile.png" alt="User Profile" width="250"/>
+
+All rights reserved © 2021. Made with 💖 by Raynard Dodzi.
