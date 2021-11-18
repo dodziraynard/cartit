@@ -16,7 +16,7 @@ export default function ProductCategoryComponent({ navigation, category }) {
         }}
       >
         <Image
-          source={require("../../assets/generics/intropage.png")}
+          source={{uri:category.image}}
           style={{
             width: 50,
             height: 50,

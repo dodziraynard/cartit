@@ -1,8 +1,37 @@
-import React, { Component } from "react";
-import { AppRegistry, StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import { StyleSheet, View, Image } from "react-native";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-
+import { useSelector } from "react-redux";
 import Swiper from "react-native-swiper";
+
+export default function HomePageSwiper() {
+  const banners = useSelector((state) => state.banners.banners);
+
+  return (
+    <Swiper
+      style={styles.wrapper}
+      height={100}
+      showsButtons={true}
+      autoplay={true}
+    >
+      {banners.map((banner) => (
+        <View
+          key={banner.id}
+          style={{ height: 180, borderRadius: 20, overflow: "hidden" }}
+        >
+          <Image
+            source={{ uri: banner.image }}
+            style={{
+              width: wp("100%"),
+              height: 180,
+              resizeMode: "center",
+            }}
+          />
+        </View>
+      ))}
+    </Swiper>
+  );
+}
 
 const styles = StyleSheet.create({
   wrapper: {},
@@ -34,44 +63,3 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-export default class HomePageSwiper extends Component {
-  render() {
-    return (
-      <Swiper style={styles.wrapper} height={100} showsButtons={false}>
-        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 180,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 180,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-        <View style={{ height: 180, borderRadius: 20, overflow: "hidden" }}>
-          <Image
-            source={require("../../assets/generics/intropage.png")}
-            style={{
-              width: wp("100%"),
-              height: 180,
-              resizeMode: "center",
-            }}
-          />
-        </View>
-      </Swiper>
-    );
-  }
-}
-
-AppRegistry.registerComponent("myproject", () => HomePageSwiper);
