@@ -36,6 +36,8 @@ yarn start
 
 ## Screenshot
 
+Below are some key screenshots of the running app.
+
 #### Home Screen
 
   <img src="screenshots/1-home.png" alt="Home Screen" width="250"/>
