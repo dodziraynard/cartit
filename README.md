@@ -62,4 +62,5 @@ Below are some key screenshots of the running app.
 
   <img src="screenshots/9-userprofile.png" alt="User Profile" width="250"/>
 
+#
 All rights reserved © 2021. Made with 💖 by Raynard Dodzi.
