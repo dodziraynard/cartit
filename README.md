@@ -34,19 +34,19 @@ Launch your iOs Simulator or Android Emulator then run this command to run the a
 yarn start
 ```
 
-## Screen Shorts
+## Screenshot
 
 - Home Screen
-  <img src="screenshots/1-home.png" alt="Home Screen" width="200"/>
+  <img src="screenshots/1-home.png" alt="Home Screen" width="250"/>
 
 - Details Screen
-  <img src="screenshots/2-details.png" alt="Details Screen" width="200"/>
+  <img src="screenshots/2-details.png" alt="Details Screen" width="250"/>
 
 - Search Screen
-  <img src="screenshots/5-search.png" alt="Search Screen" width="200"/>
+  <img src="screenshots/5-search.png" alt="Search Screen" width="250"/>
 
 - Cart Screen
-  <img src="screenshots/6-cart.png" alt="Cart Screen" width="200"/>
+  <img src="screenshots/6-cart.png" alt="Cart Screen" width="250"/>
 
 - Checout Screen
-  <img src="screenshots/7-checkout.png" alt="Checkout Screen" width="200"/>
+  <img src="screenshots/7-checkout.png" alt="Checkout Screen" width="250"/>
