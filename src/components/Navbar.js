@@ -61,7 +61,7 @@ export default function Navbar({ navigation }) {
         </View>
         <CartComponent navigation={navigation} />
         <TouchableOpacity
-          onPress={() => navigation.navigate("IntroductionScreen")}
+          onPress={() => navigation.navigate("ProfileScreen")}
           style={{
             alignSelf: "center",
             marginRight: 10,

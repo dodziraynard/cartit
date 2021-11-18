@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
+import { heightPercentageToDP } from "react-native-responsive-screen";
 
 export default ProductsComponent = ({
   title,
@@ -32,6 +33,7 @@ export default ProductsComponent = ({
       <Text style={styles.sectionHeader}>{title}</Text>
 
       <FlatList
+        height={numColumns == 2 ? heightPercentageToDP("70%") : null}
         horizontal={horizontal}
         numColumns={horizontal ? 0 : numColumns}
         centerContent={"center"}
@@ -59,7 +61,7 @@ const Item = ({ title, navigation, product }) => (
       }
     >
       <Image
-        source={require("../../assets/generics/intropage.png")}
+        source={{ uri: product.image }}
         style={{
           width: 150,
           height: 150,
@@ -101,7 +103,9 @@ const Item = ({ title, navigation, product }) => (
         marginVertical: 5,
       }}
     >
-      <Text style={{ fontSize: 18, fontWeight: "bold" }}>GHC 349</Text>
+      <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+        GHC {product.price}
+      </Text>
       <View
         style={{
           borderRadius: 4,

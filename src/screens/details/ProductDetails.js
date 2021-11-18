@@ -10,6 +10,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import Constants from "expo-constants";
 import {
@@ -21,14 +22,21 @@ import { ADD_ITEM_TO_CART } from "../../redux/actions/types";
 
 export default function ProductDetail({ navigation, route }) {
   const product = route.params.product;
-  const color = route.params.color;
-  const size = route.params.size;
+  const color = route.params.color ? route.params.color : "";
+  const size = route.params.size ? route.params.size : "";
 
   const dispatch = useDispatch();
   const [chosenColor, setChosenColor] = useState(color);
   const [chosenSize, setChosenSize] = useState(size);
 
   const addItemToCart = (product) => {
+    if (chosenColor.length < 1 || chosenSize.length < 1) {
+      Alert.alert("Select", "Please choose your preferred color and size.", [
+        { text: "OK", onPress: null },
+      ]);
+      return;
+    }
+
     dispatch({
       type: ADD_ITEM_TO_CART,
       payload: { product, quantity: 1, color: chosenColor, size: chosenSize },
@@ -140,7 +148,7 @@ export default function ProductDetail({ navigation, route }) {
                   }}
                 >
                   <Image
-                    source={require("../../../assets/generics/intropage.png")}
+                    source={{ uri: color }}
                     style={{
                       width: wp("100%"),
                       height: 100,

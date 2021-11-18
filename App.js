@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/auth/Login";
 import RegisterScreen from "./src/screens/auth/Register";
+import ProfileScreen from "./src/screens/profile/ProfileScreen";
 import IntroductionScreen from "./src/screens/auth/Introduction";
 import ProductDetailsScreen from "./src/screens/details/ProductDetails";
 import CartScreen from "./src/screens/cart/CartScreen";
@@ -90,6 +91,13 @@ export default function App() {
             options={{
               title: "Products Screen",
               headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ProfileScreen"
+            component={ProfileScreen}
+            options={{
+              title: "My Profile",
             }}
           />
         </Stack.Navigator>

@@ -5,7 +5,7 @@ const initialState = {
     { id: 1, name: "New Arrivals", image: "" },
     { id: 2, name: "Gents", image: "" },
     { id: 3, name: "Ladies", image: "" },
-    { id: 4, name: "Men", image: "" },
+    { id: 4, name: "Kids", image: "" },
   ],
 };
 

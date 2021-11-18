@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 
@@ -30,6 +30,14 @@ export default function RegisterScreen({ navigation }) {
           placeholder="***********"
           secureTextEntry={true}
         />
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate("LoginScreen")}
+          style={{ margin: 10, flexDirection: "row" }}
+        >
+          <Text>Already have an account? </Text>
+          <Text style={{ color: "blue" }}>Login</Text>
+        </TouchableOpacity>
 
         <Button backgroundColor="#33e" text="Register" onPress={() => {}} />
       </View>

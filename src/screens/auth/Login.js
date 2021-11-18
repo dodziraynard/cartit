@@ -1,7 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 
@@ -27,6 +25,14 @@ export default function LoginScreen({ navigation }) {
           placeholder="dodziraynard"
           secureTextEntry={true}
         />
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate("RegisterScreen")}
+          style={{ margin: 10, flexDirection: "row" }}
+        >
+          <Text>Don't have an account? </Text>
+          <Text style={{ color: "blue" }}>Register</Text>
+        </TouchableOpacity>
 
         <Button
           backgroundColor="#5BBC9D"

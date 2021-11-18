@@ -6,10 +6,7 @@ import { useSelector } from "react-redux";
 
 import { StyleSheet, View, Text } from "react-native";
 import Constants from "expo-constants";
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 export default function ProductsScreen({ navigation, route }) {
   const filteredProducts = useSelector(
