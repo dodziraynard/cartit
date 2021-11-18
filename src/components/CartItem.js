@@ -48,7 +48,7 @@ export default function CartItem({ item }) {
       </TouchableOpacity>
 
       <Image
-        source={require("../../assets/generics/intropage.png")}
+        source={{ uri: item.color }}
         style={{
           width: 100,
           height: 100,
