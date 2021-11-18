@@ -37,16 +37,16 @@ yarn start
 ## Screen Shorts
 
 - Home Screen
-  ![main](screenshots/1-home.png)
+  ![Home Screen](screenshots/1-home.png)
 
 - Details Screen
-  ![main](screenshots/2-details.png)
+  ![Details Screen](screenshots/2-details.png)
 
 - Search Screen
-  ![main](screenshots/5-search.png)
+  ![Search Screen](screenshots/5-search.png)
 
 - Cart Screen
-  ![main](screenshots/6-cart.png)
+  ![Cart Screen](screenshots/6-cart.png)
 
 - Checout Screen
-  ![main](screenshots/7-checkout.png)
+  ![Checout Screen](screenshots/7-checkout.png)
